@@ -10,15 +10,31 @@ namespace Vidly.Controllers
 {
     public class MoviesController : Controller
     {
-        // GET: Movies
+        public ActionResult Index()
+        {
+            var movies = MovieManager.GetMovies();
+
+            return View(movies);
+        }
+
+        public ActionResult Details(int id)
+        {
+            List<Movie> movies = MovieManager.GetMovies();
+            Movie theMovie = movies.FirstOrDefault(m => m.Id == id);
+
+            return View(theMovie);
+        }
+
         public ActionResult Random()
         {
             Movie movie = new Movie() { Name = "Shrek!" };
 
             var customers = new List<Customer>()
             {
-                new Customer() {Id = 1, Name = "Customer 1"},
-                new Customer() {Id = 2, Name = "Customer 2"}
+                new Customer() { Id = 1, Name = "Customer 1" },
+                new Customer() { Id = 2, Name = "Customer 2" },
+                new Customer() { Id = 3, Name = "Customer 3" },
+                new Customer() { Id = 4, Name = "Customer 4" }
             };
 
             var viewModel = new RandomMovieViewModel() 
@@ -28,22 +44,6 @@ namespace Vidly.Controllers
             };
 
             return View(viewModel);
-        }
-
-        public ActionResult Edit(int id)
-        {
-            return Content("The id is: " + id);
-        }
-
-        public ActionResult Index(int pageIndex = 1, string sortBy = "name")
-        {
-            return Content($"PageIndex: {pageIndex} and sortBy: {sortBy}");
-        }
-
-        [Route(template: @"movies/released/{year:regex(\d{4})}/{month:regex(\d{2}):range(1, 12)}")] //compare to custom routeconfig, MoviesByReleseDate
-        public ActionResult ByReleaseDate(int year, byte month)
-        {
-            return Content($"Year is: {year} and month is: {month}");
         }
     }
 }

@@ -15,13 +15,6 @@ namespace Vidly
 
             routes.MapMvcAttributeRoutes();
 
-            //routes.MapRoute(
-            //    name: "MoviesByReleaseDate",
-            //    url: "movies/released/{year}/{month}",
-            //    defaults: new { controller = "Movies", action = "ByReleaseDate", year = 2010, month = 10 },
-            //    constraints: new { year = @"\d{4}", month = @"\d{2}" }
-            //    );
-
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
