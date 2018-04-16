@@ -5,17 +5,23 @@ using System.Web;
 
 namespace Vidly.Models
 {
-    public static class CustomerManager
+    public class CustomerManager
     {
-        private static List<Customer> _customers = new List<Customer>
-        {
-            new Customer { Id = 1, Name = "John Smith"},
-            new Customer { Id = 2, Name = "Mary Williams"}
-        };
+        private ApplicationDbContext _context;
 
-        public static List<Customer> GetCustomers()
+        public CustomerManager()
         {
-            return _customers;
+            _context = new ApplicationDbContext();
+        }
+
+        //public List<Customer> GetCustomers()
+        //{
+        //    return _context.Customers.ToList();
+        //}
+
+        public List<Customer> GetCustomers()
+        {
+            return _context.Customers.Include("MembershipType").ToList();
         }
     }
 }

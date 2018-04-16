@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
@@ -11,15 +12,17 @@ namespace Vidly.Controllers
     {
         public ActionResult Index()
         {
-            List<Customer> customers = CustomerManager.GetCustomers();
+            CustomerManager custManager = new CustomerManager();
+            var customers = custManager.GetCustomers();
 
             return View(customers);
         }
 
         public ActionResult Details(int id)
         {
-            List<Customer> customers = CustomerManager.GetCustomers();
-            Customer theCustomer = customers.FirstOrDefault(c => c.Id == id); 
+            CustomerManager custManager = new CustomerManager();
+            var customers = custManager.GetCustomers();
+            Customer theCustomer = customers.SingleOrDefault(c => c.Id == id); 
 
             return View(theCustomer);
         }
