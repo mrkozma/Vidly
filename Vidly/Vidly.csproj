@@ -278,10 +278,19 @@
     <Compile Include="Migrations\201804160807279_ApplyRequiredAnnotationToNamePropInMembershipType.Designer.cs">
       <DependentUpon>201804160807279_ApplyRequiredAnnotationToNamePropInMembershipType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804160838033_AddBirthdateToCustomer.cs" />
+    <Compile Include="Migrations\201804160838033_AddBirthdateToCustomer.Designer.cs">
+      <DependentUpon>201804160838033_AddBirthdateToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804160846112_ChangeBirthdateOnCustomerToNullable.cs" />
+    <Compile Include="Migrations\201804160846112_ChangeBirthdateOnCustomerToNullable.Designer.cs">
+      <DependentUpon>201804160846112_ChangeBirthdateOnCustomerToNullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomerManager.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -435,6 +444,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804160807279_ApplyRequiredAnnotationToNamePropInMembershipType.resx">
       <DependentUpon>201804160807279_ApplyRequiredAnnotationToNamePropInMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804160838033_AddBirthdateToCustomer.resx">
+      <DependentUpon>201804160838033_AddBirthdateToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804160846112_ChangeBirthdateOnCustomerToNullable.resx">
+      <DependentUpon>201804160846112_ChangeBirthdateOnCustomerToNullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

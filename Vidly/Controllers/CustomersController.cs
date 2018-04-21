@@ -11,7 +11,7 @@ namespace Vidly.Controllers
     public class CustomersController : Controller
     {
         public ActionResult Index()
-        {
+        { 
             CustomerManager custManager = new CustomerManager();
             var customers = custManager.GetCustomers();
 

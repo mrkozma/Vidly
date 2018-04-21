@@ -9,6 +9,7 @@ namespace Vidly.Models
     public class Customer
     {
         public int Id { get; set; }
+
         [Required]
         [StringLength(255)]
         public string Name { get; set; }
@@ -16,5 +17,7 @@ namespace Vidly.Models
         public MembershipType MembershipType { get; set; }
         public byte MembershipTypeId { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+        public DateTime? Birthdate { get; set; }
     }
 }
